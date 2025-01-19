@@ -1,4 +1,4 @@
-const tempMovieData = [
+export const tempMovieData = [
   {
     imdbID: "tt1375666",
     Title: "Inception",
