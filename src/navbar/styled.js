@@ -31,6 +31,7 @@ export const Search = styled.input`
   border-radius: 15px;
   border: 2px solid #ffd700;
   color: #ffffff;
+  cursor: pointer;
 `;
 
 export const Results = styled.p`
