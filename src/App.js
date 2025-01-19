@@ -1,11 +1,28 @@
+import { useState } from "react";
+import { tempMovieData } from "./tempMovieData";
+import { tempWatchedData } from "./tempWatchedData";
 import MoviesList from "./moviesList/MoviesList";
 import NavBar from "./navbar/NavBar";
+import SearchComponent from "./navbar/SearchComponent";
+import SearchResult from "./navbar/SearchResult";
+import NavLogo from "./navbar/NavLogo";
+import MoviesListsContainer from "./moviesListsContainer/MoviesListsContainer";
 
 export default function App() {
+  const [movies, setMovies] = useState(tempMovieData);
+  const [ratings, setRatings] = useState(tempWatchedData);
+
   return (
-    <div>
-      <NavBar />
-      <MoviesList />
-    </div>
+    <>
+      <NavBar>
+        <NavLogo />
+        <SearchComponent movies={movies} />
+        <SearchResult movies={movies} />
+      </NavBar>
+      <MoviesListsContainer>
+        <MoviesList list={movies} />
+        <MoviesList $rating="rating " list={ratings} />
+      </MoviesListsContainer>
+    </>
   );
 }
