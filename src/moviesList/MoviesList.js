@@ -1,82 +1,37 @@
 import { useState } from "react";
-import { tempMovieData } from "../tempMovieData";
-import { tempWatchedData } from "../tempWatchedData";
-import {
-  Button,
-  Container,
-  List,
-  ListItem,
-  MovieDescription,
-  Movies,
-  MoviesContainer,
-} from "./styled";
+import { Button, List, ListItem, MovieDescription, Movies } from "./styled";
+import SummaryComponent from "./summaryElement/SummaryComponent";
 
-function MoviesList() {
+function MoviesList({ list, $rating }) {
   const [open, setOpen] = useState(true);
-  const [open2, setOpen2] = useState(true);
+
   const onListOpen = () => {
     setOpen((open) => !open);
   };
-  const onListOpen2 = () => {
-    setOpen2((open2) => !open2);
-  };
-  return (
-    <Container>
-      <Movies>
-        <MoviesContainer>
-          {" "}
-          <Button onClick={onListOpen}>{open ? "Close" : "Open"}</Button>
-          <List $open={open} style={{ display: `${open ? "block" : "none"}` }}>
-            {tempMovieData.map((movie) => {
-              return (
-                <ListItem key={movie.imdbID}>
-                  {" "}
-                  <img
-                    style={{ width: "100px" }}
-                    w
-                    src={movie.Poster}
-                    alt="movie.Title"
-                  />
-                  <MovieDescription>
-                    <span>{movie.Title}</span>
-                    <span>{movie.Year}</span>
-                  </MovieDescription>
-                </ListItem>
-              );
-            })}
-          </List>
-        </MoviesContainer>{" "}
-      </Movies>
 
-      <Movies>
-        <MoviesContainer>
-          {" "}
-          <Button onClick={onListOpen2}>{open2 ? "Close" : "Open"}</Button>
-          <List
-            $open2={open2}
-            style={{ display: `${open2 ? "block" : "none"}` }}
-          >
-            {tempWatchedData.map((movie) => {
-              return (
-                <ListItem key={movie.imdbID}>
-                  {" "}
-                  <img
-                    style={{ width: "100px" }}
-                    w
-                    src={movie.Poster}
-                    alt="movie.Title"
-                  />
-                  <MovieDescription>
-                    <span>{movie.Title}</span>
-                    <span>{movie.Year}</span>
-                  </MovieDescription>
-                </ListItem>
-              );
-            })}
-          </List>
-        </MoviesContainer>{" "}
-      </Movies>
-    </Container>
+  return (
+    <Movies>
+      <Button onClick={onListOpen}>{open ? "Close" : "Open"}</Button>
+      {$rating && <SummaryComponent $open={open} />}
+      <List $open={open}>
+        {list.map((movie) => {
+          return (
+            <ListItem key={movie.imdbID}>
+              {" "}
+              <img
+                style={{ width: "100px" }}
+                src={movie.Poster}
+                alt="movie.Title"
+              />
+              <MovieDescription>
+                <span>{movie.Title}</span>
+                <span>{movie.Year}</span>
+              </MovieDescription>
+            </ListItem>
+          );
+        })}
+      </List>
+    </Movies>
   );
 }
 
