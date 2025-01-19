@@ -16,7 +16,7 @@ export const LogoContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  color: #ffffff;
+  color: #ffd700;
   gap: 20px;
 `;
 
@@ -30,6 +30,7 @@ export const Search = styled.input`
   border: none;
   border-radius: 15px;
   border: 2px solid #ffd700;
+  color: #ffffff;
 `;
 
 export const Results = styled.p`
