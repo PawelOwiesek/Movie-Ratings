@@ -1,30 +1,17 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  max-width: 1600px;
-  gap: 40px;
-  margin: 45px auto;
-`;
-
 export const Movies = styled.div`
   background-color: #222121;
-  border-radius: 15px;
   border: 2px solid #ffd700;
-  width: 100%;
   height: 660px;
   border-radius: 25px;
-`;
-export const MoviesContainer = styled.div`
-  padding: 20px;
-  margin: 0 30px;
   position: relative;
 `;
 
 export const List = styled.ul`
+  display: ${({ $open }) => ($open ? "block" : "none")};
   grid-row-start: 2;
-  padding: 25px 0;
+  padding: 40px 0 0 20px;
   list-style: none;
   color: #ffffff;
   margin-top: 40px;
@@ -43,6 +30,7 @@ export const Button = styled.button`
   display: flex;
   position: absolute;
   right: 15px;
+  top: 20px;
   padding: 5px 20px;
   text-align: center;
   border: 2px solid #ffd700;
@@ -57,4 +45,17 @@ export const Button = styled.button`
 export const MovieDescription = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+export const Summary = styled.div`
+  display: ${({ $open }) => ($open ? "flex" : "none")};
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
+  color: #ffffff;
+  margin: 80px 30px -50px;
+  width: 90%;
+  border-radius: 25px;
+  background-color: rgb(83, 77, 77);
+  box-shadow: 16px 13px 14px 11px #00000066;
 `;
