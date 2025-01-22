@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Summary } from "../styled";
 import { Star } from "./star";
-import { RatingContainer, StarContainer } from "./styled";
+import { RatingContainer, StarContainer, Title } from "./styled";
 
 function SummaryComponent({ $open, list, maxRating = 5 }) {
   const [hover, setHover] = useState(0);
@@ -13,10 +13,8 @@ function SummaryComponent({ $open, list, maxRating = 5 }) {
 
   return (
     <Summary $open={$open}>
-      <h2>Movies You watched </h2>
-
+      <Title>Movies You watched </Title>
       <RatingContainer>
-        {" "}
         <p>💢 {list.length} movies</p>
         Rating{" "}
         <StarContainer>
