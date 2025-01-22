@@ -12,7 +12,7 @@ function MoviesList({ list, $rating }) {
   return (
     <Movies>
       <Button onClick={onListOpen}>{open ? "Close" : "Open"}</Button>
-      {$rating && <SummaryComponent $open={open} />}
+      {$rating && <SummaryComponent list={list} $open={open} />}
       <List $open={open}>
         {list.map((movie) => {
           return (
@@ -25,7 +25,14 @@ function MoviesList({ list, $rating }) {
               />
               <MovieDescription>
                 <span>{movie.Title}</span>
-                <span>{movie.Year}</span>
+                <span>📅 {movie.Year}</span>
+                {$rating && (
+                  <p>
+                    <span> {movie.imdbRating}</span>
+                    <span> {movie.userRating}</span>{" "}
+                    <span>{movie.runtime} min </span>
+                  </p>
+                )}
               </MovieDescription>
             </ListItem>
           );
