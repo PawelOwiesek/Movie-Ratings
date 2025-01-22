@@ -56,6 +56,22 @@ export const Summary = styled.div`
   margin: 80px 30px -50px;
   width: 90%;
   border-radius: 25px;
-  background-color: rgb(83, 77, 77);
+  background-color: #534d4d;
   box-shadow: 16px 13px 14px 11px #00000066;
+`;
+
+export const MovieTitle = styled.h3`
+  padding: 0;
+  margin: 0;
+`;
+
+export const MovieRatingContainer = styled.p`
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  gap: 20px;
+`;
+
+export const Rating = styled.span`
+  display: flex;
+  align-items: center;
 `;
