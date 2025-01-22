@@ -1,6 +1,16 @@
 import { useState } from "react";
-import { Button, List, ListItem, MovieDescription, Movies } from "./styled";
+import {
+  Button,
+  List,
+  ListItem,
+  MovieDescription,
+  MovieRatingContainer,
+  Movies,
+  MovieTitle,
+  Rating,
+} from "./styled";
 import SummaryComponent from "./summaryElement/SummaryComponent";
+import { Star } from "./summaryElement/star";
 
 function MoviesList({ list, $rating }) {
   const [open, setOpen] = useState(true);
@@ -24,14 +34,18 @@ function MoviesList({ list, $rating }) {
                 alt="movie.Title"
               />
               <MovieDescription>
-                <span>{movie.Title}</span>
+                <MovieTitle>{movie.Title}</MovieTitle>
                 <span>📅 {movie.Year}</span>
                 {$rating && (
-                  <p>
-                    <span> {movie.imdbRating}</span>
-                    <span> {movie.userRating}</span>{" "}
-                    <span>{movie.runtime} min </span>
-                  </p>
+                  <MovieRatingContainer>
+                    <Rating>
+                      <Star full={true} width={40} /> {movie.imdbRating}
+                    </Rating>
+                    <Rating>
+                      <Star full={true} width={40} /> {movie.userRating}
+                    </Rating>
+                    <Rating>{movie.runtime} min </Rating>
+                  </MovieRatingContainer>
                 )}
               </MovieDescription>
             </ListItem>
