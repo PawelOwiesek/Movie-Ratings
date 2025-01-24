@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Movies = styled.div`
   background-color: #222121;
   border: 2px solid #ffd700;
-  height: 660px;
+  height: fit-content;
   border-radius: 25px;
   position: relative;
 `;
