@@ -1,7 +1,7 @@
 const KEY = 32389744;
 
-export const API = ({ setMovies }) => {
-  fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=Rocky`)
-    .then((res) => res.json())
-    .then((data) => setMovies(data.Search));
+export const API = async ({ setMovies, query }) => {
+  const res = await fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${query}`);
+  const data = await res.json();
+  setMovies(data.Search);
 };
