@@ -7,16 +7,18 @@ import SearchResult from "./navbar/SearchResult";
 import NavLogo from "./navbar/NavLogo";
 import MoviesListsContainer from "./moviesListsContainer/MoviesListsContainer";
 import { API } from "./apiData";
-import { Loading } from "./loader/loader";
+import { Loading } from "./asideActions/loader/loader";
+import { Error } from "./asideActions/error/error";
 
 export default function App() {
   const [movies, setMovies] = useState([]);
   const [ratings, setRatings] = useState(tempWatchedData);
   const [query, setQuery] = useState("transformers");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    API({ setMovies, query, setIsLoading });
+    API({ setMovies, query, setIsLoading, setError });
   }, [query]);
 
   return (
@@ -27,7 +29,14 @@ export default function App() {
         <SearchResult movies={movies} />
       </NavBar>
       <MoviesListsContainer>
-        {isLoading ? <Loading /> : <MoviesList list={movies} query={query} />}
+        {error ? (
+          <Error />
+        ) : isLoading ? (
+          <Loading />
+        ) : (
+          <MoviesList list={movies} query={query} />
+        )}
+
         <MoviesList $rating="rating " list={ratings} />
       </MoviesListsContainer>
     </>
