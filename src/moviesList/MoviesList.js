@@ -24,7 +24,7 @@ function MoviesList({ list, $rating }) {
       <Button onClick={onListOpen}>{open ? "Close" : "Open"}</Button>
       {$rating && <SummaryComponent list={list} $open={open} />}
       <List $open={open}>
-        {list.map((movie) => {
+        {list?.map((movie) => {
           return (
             <ListItem key={movie.imdbID}>
               {" "}
