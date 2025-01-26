@@ -15,18 +15,6 @@ export const Spinner = styled(spinnerIcon)`
     }
   }
 `;
-export const Container = styled.div``;
-
-export const Wrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const Title = styled.h2`
-  align-self: flex-start;
-  margin: 56px 0 0 16px;
-  font-size: 36px;
-  font-weight: 600;
-  line-height: 1.2;
-  color: black;
+export const Container = styled.div`
+  padding-top: 150px;
 `;

@@ -1,8 +1,7 @@
-import { Container, Spinner, Title } from "./styled";
+import { Container, Spinner } from "./styled";
 
-export const Loading = ({ query }) => (
+export const Loading = () => (
   <Container>
-    <Title>{query ? `Search results for "${query}"` : ""}</Title>
     <Spinner />
   </Container>
 );
