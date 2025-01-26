@@ -11,20 +11,21 @@ import { API } from "./apiData";
 export default function App() {
   const [movies, setMovies] = useState([]);
   const [ratings, setRatings] = useState(tempWatchedData);
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
-    API({ setMovies });
-  }, []);
+    API({ setMovies, query });
+  }, [query]);
 
   return (
     <>
       <NavBar>
         <NavLogo />
-        <SearchComponent movies={movies} />
+        <SearchComponent movies={movies} query={query} setQuery={setQuery} />
         <SearchResult movies={movies} />
       </NavBar>
       <MoviesListsContainer>
-        <MoviesList list={movies} />
+        <MoviesList list={movies} query={query} />
         <MoviesList $rating="rating " list={ratings} />
       </MoviesListsContainer>
     </>
