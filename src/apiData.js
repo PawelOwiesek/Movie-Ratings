@@ -9,7 +9,7 @@ export const API = async ({
 }) => {
   try {
     setIsLoading(true);
-
+    setError(false);
     await new Promise((resolve) => setTimeout(resolve, 500));
 
     const res = await fetch(
