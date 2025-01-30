@@ -13,12 +13,13 @@ import { Error } from "./asideActions/error/error";
 export default function App() {
   const [movies, setMovies] = useState([]);
   const [ratings, setRatings] = useState(tempWatchedData);
-  const [query, setQuery] = useState("transformers");
+  const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [noData, setNoData] = useState(false);
 
   useEffect(() => {
-    API({ setMovies, query, setIsLoading, setError });
+    API({ setMovies, query, setIsLoading, setError, setNoData });
   }, [query]);
 
   return (
@@ -33,6 +34,8 @@ export default function App() {
           <Error />
         ) : isLoading ? (
           <Loading />
+        ) : noData ? (
+          noData
         ) : (
           <MoviesList list={movies} query={query} />
         )}
