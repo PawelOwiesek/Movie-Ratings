@@ -32,4 +32,10 @@ export const API = async ({
   } finally {
     setIsLoading(false);
   }
+
+  if (!query.length) {
+    setMovies([]);
+    setNoData(false);
+    return;
+  }
 };
