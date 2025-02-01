@@ -9,6 +9,7 @@ import MoviesListsContainer from "./moviesListsContainer/MoviesListsContainer";
 import { API } from "./apiData";
 import { Loading } from "./asideActions/loader/loader";
 import { Error } from "./asideActions/error/error";
+import { MovieDetails } from "./movieDetails";
 
 export default function App() {
   const [movies, setMovies] = useState([]);
@@ -17,10 +18,19 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [noData, setNoData] = useState(false);
+  const [selectedId, setSelectedId] = useState("");
 
   useEffect(() => {
     API({ setMovies, query, setIsLoading, setError, setNoData });
   }, [query]);
+
+  const handleSelectMovie = (id) => {
+    selectedId === id ? setSelectedId(null) : setSelectedId(id);
+  };
+
+  const handleCloseMovie = () => {
+    setSelectedId(null);
+  };
 
   return (
     <>
@@ -37,10 +47,22 @@ export default function App() {
         ) : noData ? (
           noData
         ) : (
-          <MoviesList list={movies} query={query} />
+          <MoviesList
+            list={movies}
+            query={query}
+            setSelectedId={handleSelectMovie}
+            closeMovieDetails={handleCloseMovie}
+          />
         )}
 
-        <MoviesList $rating="rating " list={ratings} />
+        {selectedId ? (
+          <MovieDetails
+            selectedId={selectedId}
+            handleCloseMovie={handleCloseMovie}
+          />
+        ) : (
+          <MoviesList $rating="rating " list={ratings} />
+        )}
       </MoviesListsContainer>
     </>
   );
