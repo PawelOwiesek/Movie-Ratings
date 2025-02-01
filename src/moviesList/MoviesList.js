@@ -12,7 +12,7 @@ import {
 import SummaryComponent from "./summaryElement/SummaryComponent";
 import { Star } from "./summaryElement/star";
 
-function MoviesList({ list, $rating }) {
+function MoviesList({ list, $rating, setSelectedId }) {
   const [open, setOpen] = useState(true);
 
   const onListOpen = () => {
@@ -26,7 +26,10 @@ function MoviesList({ list, $rating }) {
       <List $open={open}>
         {list?.map((movie) => {
           return (
-            <ListItem key={movie.imdbID}>
+            <ListItem
+              onClick={() => setSelectedId(movie.imdbID)}
+              key={movie.imdbID}
+            >
               {" "}
               <img
                 style={{ width: "100px" }}
