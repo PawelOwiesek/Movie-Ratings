@@ -22,7 +22,7 @@ export const ListItem = styled.li`
   align-items: center;
   margin: 10px;
   gap: 25px;
-  font-size: 22px;
+  font-size: 18px;
   margin-bottom: 25px;
 `;
 
@@ -60,7 +60,7 @@ export const Summary = styled.div`
   box-shadow: 16px 13px 14px 11px #00000066;
 `;
 
-export const MovieTitle = styled.h3`
+export const MovieTitle = styled.h5`
   padding: 0;
   margin: 0;
 `;
