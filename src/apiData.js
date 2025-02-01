@@ -1,4 +1,4 @@
-const KEY = 32389744;
+export const KEY = 32389744;
 
 export const API = async ({
   setMovies,
@@ -13,7 +13,7 @@ export const API = async ({
     await new Promise((resolve) => setTimeout(resolve, 500));
 
     const res = await fetch(
-      `https://www.omdbapi.com/?apikey=${KEY}&s=${query}&plot`
+      `https://www.omdbapi.com/?apikey=${KEY}&s=${query}`
     );
 
     if (!res.ok) {
@@ -21,7 +21,6 @@ export const API = async ({
     }
 
     const data = await res.json();
-    console.log(data.Search);
     const noMovie = data.Response === "False" && (
       <h1 style={{ color: " #ffffff" }}>No movies found</h1>
     );
@@ -39,15 +38,4 @@ export const API = async ({
     setNoData(false);
     return;
   }
-};
-
-export const fetchMovieDetails = () => {
-  const res = fetch(`https://www.omdbapi.com/?apikey=${KEY}`);
-
-  if (!res.ok) {
-    throw new Error("");
-  }
-
-  const data = res.json();
-  console.log(data.Search);
 };
