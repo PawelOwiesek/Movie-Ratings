@@ -14,11 +14,11 @@ import { MovieDetails } from "./movieDetails";
 export default function App() {
   const [movies, setMovies] = useState([]);
   const [ratings, setRatings] = useState(tempWatchedData);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("Resident Evil");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [noData, setNoData] = useState(false);
-  const [selectedId, setSelectedId] = useState("");
+  const [selectedId, setSelectedId] = useState(null);
 
   useEffect(() => {
     API({ setMovies, query, setIsLoading, setError, setNoData });
