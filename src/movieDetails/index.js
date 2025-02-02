@@ -10,8 +10,16 @@ import {
   Movies,
   MovieTitle,
 } from "./styled";
+import { Stars } from "../star/starComponent";
 
-export const MovieDetails = ({ selectedId, handleCloseMovie }) => {
+export const MovieDetails = ({
+  selectedId,
+  handleCloseMovie,
+  hover,
+  setHover,
+  rating,
+  setRating,
+}) => {
   const [selectedMovie, setSelectedMovie] = useState("");
 
   useEffect(() => {
@@ -29,6 +37,7 @@ export const MovieDetails = ({ selectedId, handleCloseMovie }) => {
 
   return (
     <Movies>
+      {" "}
       <Button onClick={handleCloseMovie}>&larr;</Button>{" "}
       <FlexContainer>
         <Image src={selectedMovie.Poster} alt={selectedMovie.Title} />
@@ -41,6 +50,15 @@ export const MovieDetails = ({ selectedId, handleCloseMovie }) => {
               <GenreItem>{genre.trim()}</GenreItem>
             ))}
           </Genre>
+          <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+            <Stars
+              hover={hover}
+              setHover={setHover}
+              rating={rating}
+              setRating={setRating}
+            />
+            Rating {hover || rating || ""}
+          </div>
           <p>imdbRating: {selectedMovie.imdbRating}</p>
           <p>imdbVotes: {selectedMovie.imdbVotes}</p>
           <p> {selectedMovie.Plot}</p>
