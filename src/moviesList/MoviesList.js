@@ -10,9 +10,17 @@ import {
   Rating,
 } from "./styled";
 import SummaryComponent from "./summaryElement/SummaryComponent";
-import { Star } from "./summaryElement/star";
+import { Star } from "../star/star";
 
-function MoviesList({ list, $rating, setSelectedId }) {
+function MoviesList({
+  list,
+  $rating,
+  setSelectedId,
+  rating,
+  hover,
+  setRating,
+  setHover,
+}) {
   const [open, setOpen] = useState(true);
 
   const onListOpen = () => {
@@ -22,7 +30,16 @@ function MoviesList({ list, $rating, setSelectedId }) {
   return (
     <Movies>
       <Button onClick={onListOpen}>{open ? "Close" : "Open"}</Button>
-      {$rating && <SummaryComponent list={list} $open={open} />}
+      {$rating && (
+        <SummaryComponent
+          list={list}
+          $open={open}
+          hover={hover}
+          setHover={setHover}
+          rating={rating}
+          setRating={setRating}
+        />
+      )}
       <List $open={open}>
         {list?.map((movie) => {
           return (
