@@ -32,7 +32,7 @@ function MoviesList({ list, $rating, setSelectedId }) {
             >
               {" "}
               <img
-                style={{ width: "75px" }}
+                style={{ width: "175px" }}
                 src={movie.Poster}
                 alt="movie.Title"
               />
