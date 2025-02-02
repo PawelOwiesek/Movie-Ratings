@@ -1,6 +1,15 @@
 import { useEffect, useState } from "react";
 import { KEY } from "../apiData";
-import { Button, Description, FlexContainer, Image, Movies } from "./styled";
+import {
+  Button,
+  Description,
+  FlexContainer,
+  Genre,
+  GenreItem,
+  Image,
+  Movies,
+  MovieTitle,
+} from "./styled";
 
 export const MovieDetails = ({ selectedId, handleCloseMovie }) => {
   const [selectedMovie, setSelectedMovie] = useState("");
@@ -12,6 +21,7 @@ export const MovieDetails = ({ selectedId, handleCloseMovie }) => {
       );
 
       const data = await res.json();
+      console.log(data);
       setSelectedMovie(data);
     };
     fetchMovieDetails();
@@ -23,10 +33,14 @@ export const MovieDetails = ({ selectedId, handleCloseMovie }) => {
       <FlexContainer>
         <Image src={selectedMovie.Poster} alt={selectedMovie.Title} />
         <Description>
-          <p>{selectedMovie.Title}</p>
+          <MovieTitle>{selectedMovie.Title}</MovieTitle>
           <p>Runtime: {selectedMovie.Runtime}</p>
           <p>Director: {selectedMovie.Director}</p>
-          <p>Genre: {selectedMovie.Genre}</p>
+          <Genre>
+            {selectedMovie.Genre?.split(",").map((genre) => (
+              <GenreItem>{genre.trim()}</GenreItem>
+            ))}
+          </Genre>
           <p>imdbRating: {selectedMovie.imdbRating}</p>
           <p>imdbVotes: {selectedMovie.imdbVotes}</p>
           <p> {selectedMovie.Plot}</p>
