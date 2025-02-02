@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Movies } from "../moviesList/styled";
 import { KEY } from "../apiData";
+import { Button, Description, FlexContainer, Image, Movies } from "./styled";
 
 export const MovieDetails = ({ selectedId, handleCloseMovie }) => {
   const [selectedMovie, setSelectedMovie] = useState("");
@@ -18,37 +18,20 @@ export const MovieDetails = ({ selectedId, handleCloseMovie }) => {
   }, [selectedId]);
 
   return (
-    <Movies style={{ position: "fixed", maxWidth: "800px", right: "120px" }}>
-      <div style={{ padding: "10px", display: "flex" }}>
-        <button
-          style={{
-            width: "50px",
-            height: "50px",
-            borderRadius: "100%",
-            margin: "5px",
-            fontSize: "30px",
-          }}
-          onClick={handleCloseMovie}
-        >
-          &larr;
-        </button>
-        <img
-          style={{ width: "275px", height: "275px", margin: "20px" }}
-          src={selectedMovie.Poster}
-          alt={selectedMovie.Title}
-        />
-        <div>
-          <p style={{ color: "#fff" }}>{selectedMovie.Title}</p>
-          <p style={{ color: "#fff" }}>Runtime: {selectedMovie.Runtime}</p>
-          <p style={{ color: "#fff" }}>Director: {selectedMovie.Director}</p>
-          <p style={{ color: "#fff" }}>Genre: {selectedMovie.Genre}</p>
-          <p style={{ color: "#fff" }}>
-            imdbRating: {selectedMovie.imdbRating}
-          </p>
-          <p style={{ color: "#fff" }}>imdbVotes: {selectedMovie.imdbVotes}</p>
-          <p style={{ color: "#fff" }}> {selectedMovie.Plot}</p>
-        </div>
-      </div>
+    <Movies>
+      <Button onClick={handleCloseMovie}>&larr;</Button>{" "}
+      <FlexContainer>
+        <Image src={selectedMovie.Poster} alt={selectedMovie.Title} />
+        <Description>
+          <p>{selectedMovie.Title}</p>
+          <p>Runtime: {selectedMovie.Runtime}</p>
+          <p>Director: {selectedMovie.Director}</p>
+          <p>Genre: {selectedMovie.Genre}</p>
+          <p>imdbRating: {selectedMovie.imdbRating}</p>
+          <p>imdbVotes: {selectedMovie.imdbVotes}</p>
+          <p> {selectedMovie.Plot}</p>
+        </Description>
+      </FlexContainer>
     </Movies>
   );
 };
