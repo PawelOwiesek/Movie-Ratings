@@ -20,10 +20,14 @@ export const List = styled.ul`
 export const ListItem = styled.li`
   display: flex;
   align-items: center;
-  margin: 10px;
+  margin: 30px;
   gap: 25px;
   font-size: 18px;
   margin-bottom: 25px;
+  border-radius: 30px;
+  &:hover {
+    box-shadow: 16px 13px 14px 11px #00000066;
+  }
 `;
 
 export const Button = styled.button`
@@ -60,7 +64,7 @@ export const Summary = styled.div`
   box-shadow: 16px 13px 14px 11px #00000066;
 `;
 
-export const MovieTitle = styled.h5`
+export const MovieTitle = styled.h3`
   padding: 0;
   margin: 0;
 `;

@@ -8,8 +8,3 @@ export const RatingContainer = styled.div`
   align-items: center;
   font-size: 22px;
 `;
-export const StarContainer = styled.p`
-  display: flex;
-  width: 185px;
-  cursor: pointer;
-`;

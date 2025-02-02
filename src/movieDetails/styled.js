@@ -4,7 +4,7 @@ export const Movies = styled.div`
   position: fixed;
   max-width: 800px;
   right: 120px;
-  background-color: #222121;
+  background-color: #534d4d;
   border: 2px solid #ffd700;
   border-radius: 25px;
 `;
