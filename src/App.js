@@ -19,6 +19,8 @@ export default function App() {
   const [error, setError] = useState(false);
   const [noData, setNoData] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
+  const [hover, setHover] = useState(0);
+  const [rating, setRating] = useState(0);
 
   useEffect(() => {
     API({ setMovies, query, setIsLoading, setError, setNoData });
@@ -52,6 +54,10 @@ export default function App() {
             query={query}
             setSelectedId={handleSelectMovie}
             closeMovieDetails={handleCloseMovie}
+            hover={hover}
+            setHover={setHover}
+            rating={rating}
+            setRating={setRating}
           />
         )}
 
@@ -59,9 +65,20 @@ export default function App() {
           <MovieDetails
             selectedId={selectedId}
             handleCloseMovie={handleCloseMovie}
+            hover={hover}
+            setHover={setHover}
+            rating={rating}
+            setRating={setRating}
           />
         ) : (
-          <MoviesList $rating="rating " list={ratings} />
+          <MoviesList
+            $rating="rating "
+            list={ratings}
+            hover={hover}
+            setHover={setHover}
+            rating={rating}
+            setRating={setRating}
+          />
         )}
       </MoviesListsContainer>
     </>
