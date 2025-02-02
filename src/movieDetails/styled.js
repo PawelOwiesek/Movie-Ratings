@@ -19,12 +19,33 @@ export const Description = styled.div`
   padding-top: 10px;
   font-size: 20px;
 `;
+
+export const MovieTitle = styled.h2``;
+
+export const Genre = styled.ul`
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  flex-wrap: wrap;
+`;
+
+export const GenreItem = styled.li`
+  background-color: #222121;
+  border: 2px solid #ffd700;
+  border-radius: 25px;
+  padding: 5px 20px;
+`;
+
 export const Button = styled.button`
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  margin: 5px;
+  width: 90px;
+  height: 40px;
+  border-radius: 25px;
+  margin: 15px;
   font-size: 30px;
+  border: 2px solid #ffd700;
+  color: #fff;
+  background-color: rgb(18, 30, 126);
 `;
 
 export const Image = styled.img`
