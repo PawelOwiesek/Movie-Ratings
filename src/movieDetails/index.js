@@ -25,8 +25,8 @@ export const MovieDetails = ({
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     const fetchMovieDetails = async () => {
-      setIsLoading(true);
       const res = await fetch(
         `https://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
       );
@@ -39,11 +39,11 @@ export const MovieDetails = ({
   }, [selectedId]);
 
   return (
-    <Movies>
+    <>
       {isLoading ? (
         <Loading />
       ) : (
-        <>
+        <Movies>
           <Button onClick={handleCloseMovie}>&larr;</Button>
           <FlexContainer>
             <Image src={selectedMovie.Poster} alt={selectedMovie.Title} />
@@ -72,8 +72,8 @@ export const MovieDetails = ({
               <p> {selectedMovie.Plot}</p>
             </Description>
           </FlexContainer>
-        </>
+        </Movies>
       )}
-    </Movies>
+    </>
   );
 };
