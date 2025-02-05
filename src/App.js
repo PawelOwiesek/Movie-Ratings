@@ -38,6 +38,10 @@ export default function App() {
     setRating(0);
   };
 
+  const removeFromList = (id) => {
+    setWatched([...watched.filter((movie) => movie.imdbID !== id)]);
+  };
+
   return (
     <>
       <NavBar>
@@ -85,6 +89,7 @@ export default function App() {
             rating={rating}
             setRating={setRating}
             isWatchedList={true}
+            removeFromList={removeFromList}
           />
         )}
       </MoviesListsContainer>

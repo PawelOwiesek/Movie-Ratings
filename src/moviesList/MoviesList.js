@@ -21,6 +21,7 @@ function MoviesList({
   setRating,
   setHover,
   isWatchedList,
+  removeFromList,
 }) {
   const [open, setOpen] = useState(true);
   const onListOpen = () => {
@@ -61,6 +62,7 @@ function MoviesList({
                   <MovieRatingContainer>
                     {" "}
                     <button
+                      onClick={() => removeFromList(movie.imdbID)}
                       style={{
                         position: "absolute",
                         right: "40px",
