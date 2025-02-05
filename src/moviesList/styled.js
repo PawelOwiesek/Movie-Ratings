@@ -71,6 +71,7 @@ export const MovieTitle = styled.h3`
 
 export const MovieRatingContainer = styled.p`
   display: grid;
+  position: relative;
   grid-template-columns: repeat(3, 180px);
   gap: 20px;
 `;

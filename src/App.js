@@ -83,6 +83,7 @@ export default function App() {
             setHover={setHover}
             rating={rating}
             setRating={setRating}
+            isWatchedList={true}
           />
         )}
       </MoviesListsContainer>

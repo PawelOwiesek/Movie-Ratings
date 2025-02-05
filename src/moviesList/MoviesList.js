@@ -20,9 +20,9 @@ function MoviesList({
   hover,
   setRating,
   setHover,
+  isWatchedList,
 }) {
   const [open, setOpen] = useState(true);
-
   const onListOpen = () => {
     setOpen((open) => !open);
   };
@@ -44,7 +44,7 @@ function MoviesList({
         {list?.map((movie) => {
           return (
             <ListItem
-              onClick={() => setSelectedId(movie.imdbID)}
+              onClick={isWatchedList ? null : () => setSelectedId(movie.imdbID)}
               key={movie.imdbID}
             >
               {" "}
@@ -55,9 +55,27 @@ function MoviesList({
               />
               <MovieDescription>
                 <MovieTitle>{movie.Title}</MovieTitle>
+
                 <span>📅 {movie.Year}</span>
                 {$rating && (
                   <MovieRatingContainer>
+                    {" "}
+                    <button
+                      style={{
+                        position: "absolute",
+                        right: "40px",
+                        top: "-60px",
+                        border: "none",
+                        height: "30px",
+                        width: "30px",
+                        borderRadius: "100%",
+                        backgroundColor: "crimson",
+                        color: " #ffffff",
+                        fontSize: "18px",
+                      }}
+                    >
+                      x
+                    </button>
                     <Rating>
                       <Star full={true} width={40} />
                       Imdb rating {movie.imdbRating}
