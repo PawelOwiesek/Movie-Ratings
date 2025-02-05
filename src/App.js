@@ -35,6 +35,7 @@ export default function App() {
 
   const addWatchedMovie = (movie) => {
     setWatched((watched) => [...watched, movie]);
+    setRating(0);
   };
 
   return (
