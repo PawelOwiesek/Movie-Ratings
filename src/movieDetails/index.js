@@ -20,6 +20,8 @@ export const MovieDetails = ({
   setHover,
   rating,
   setRating,
+  watched,
+  addWatchedMovie,
 }) => {
   const [selectedMovie, setSelectedMovie] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -38,6 +40,24 @@ export const MovieDetails = ({
     setIsLoading(false);
   }, [selectedId]);
 
+  const handleAddMovie = () => {
+    const addedMovie = {
+      imdbID: selectedId,
+      Poster: selectedMovie.Poster,
+      Title: selectedMovie.Title,
+      runtime: selectedMovie.Runtime,
+      Year: selectedMovie.Year,
+      imdbRating: selectedMovie.imdbRating,
+      userRating: rating,
+    };
+    if (watched.find((watch) => watch.imdbID === addedMovie.imdbID)) {
+      handleCloseMovie();
+      return;
+    }
+    addWatchedMovie(addedMovie);
+    handleCloseMovie();
+  };
+
   return (
     <>
       {isLoading ? (
@@ -53,7 +73,7 @@ export const MovieDetails = ({
               <p>Director: {selectedMovie.Director}</p>
               <Genre>
                 {selectedMovie.Genre?.split(",").map((genre) => (
-                  <GenreItem>{genre.trim()}</GenreItem>
+                  <GenreItem key={genre}>{genre.trim()}</GenreItem>
                 ))}
               </Genre>
               <div
@@ -67,6 +87,7 @@ export const MovieDetails = ({
                 />
                 Rating {hover || rating || ""}
               </div>
+              <button onClick={handleAddMovie}>Add movie to list</button>
               <p>imdbRating: {selectedMovie.imdbRating}</p>
               <p>imdbVotes: {selectedMovie.imdbVotes}</p>
               <p> {selectedMovie.Plot}</p>
