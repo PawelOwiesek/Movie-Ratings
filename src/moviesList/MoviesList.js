@@ -59,12 +59,14 @@ function MoviesList({
                 {$rating && (
                   <MovieRatingContainer>
                     <Rating>
-                      <Star full={true} width={40} /> {movie.imdbRating}
+                      <Star full={true} width={40} />
+                      Imdb rating {movie.imdbRating}
                     </Rating>
                     <Rating>
-                      <Star full={true} width={40} /> {movie.userRating}
+                      <Star full={true} width={40} />
+                      My rating: {movie.userRating}
                     </Rating>
-                    <Rating>{movie.runtime} min </Rating>
+                    <Rating>{movie.runtime} </Rating>
                   </MovieRatingContainer>
                 )}
               </MovieDescription>
