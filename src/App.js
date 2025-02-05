@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { tempWatchedData } from "./tempWatchedData";
 import MoviesList from "./moviesList/MoviesList";
 import NavBar from "./navbar/NavBar";
 import SearchComponent from "./navbar/SearchComponent";
@@ -13,7 +12,7 @@ import { MovieDetails } from "./movieDetails";
 
 export default function App() {
   const [movies, setMovies] = useState([]);
-  const [ratings, setRatings] = useState(tempWatchedData);
+  const [watched, setWatched] = useState([]);
   const [query, setQuery] = useState("Resident Evil");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -32,6 +31,10 @@ export default function App() {
 
   const handleCloseMovie = () => {
     setSelectedId(null);
+  };
+
+  const addWatchedMovie = (movie) => {
+    setWatched((watched) => [...watched, movie]);
   };
 
   return (
@@ -69,11 +72,13 @@ export default function App() {
             setHover={setHover}
             rating={rating}
             setRating={setRating}
+            watched={watched}
+            addWatchedMovie={addWatchedMovie}
           />
         ) : (
           <MoviesList
             $rating="rating "
-            list={ratings}
+            list={watched}
             hover={hover}
             setHover={setHover}
             rating={rating}
