@@ -38,11 +38,11 @@ export const GenreItem = styled.li`
 `;
 
 export const Button = styled.button`
-  width: 90px;
+  width: ${({ $addMovie }) => ($addMovie ? "250px" : "90px")};
   height: 40px;
   border-radius: 25px;
   margin: 15px;
-  font-size: 30px;
+  font-size: ${({ $addMovie }) => ($addMovie ? " 20px" : "30px")};
   border: 2px solid #ffd700;
   color: #fff;
   background-color: rgb(18, 30, 126);

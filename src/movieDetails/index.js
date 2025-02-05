@@ -87,7 +87,9 @@ export const MovieDetails = ({
                 />
                 Rating {hover || rating || ""}
               </div>
-              <button onClick={handleAddMovie}>Add movie to list</button>
+              <Button $addMovie onClick={handleAddMovie}>
+                Add movie to list
+              </Button>
               <p>imdbRating: {selectedMovie.imdbRating}</p>
               <p>imdbVotes: {selectedMovie.imdbVotes}</p>
               <p> {selectedMovie.Plot}</p>
