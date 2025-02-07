@@ -13,17 +13,39 @@ import { MovieDetails } from "./movieDetails";
 export default function App() {
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
-  const [query, setQuery] = useState("Resident Evil");
+  const [query, setQuery] = useState("Superman");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [noData, setNoData] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
   const [hover, setHover] = useState(0);
   const [rating, setRating] = useState(0);
+  const [averageImdbRating, setAverageImdbRating] = useState(0);
+  const [averageUserRating, setAverageUserRating] = useState(0);
 
   useEffect(() => {
     API({ setMovies, query, setIsLoading, setError, setNoData });
   }, [query]);
+
+  useEffect(() => {
+    if (watched.length === 0) {
+      setAverageImdbRating(0);
+      setAverageUserRating(0);
+      return;
+    }
+
+    const { totalImdb, totalUser } = watched.reduce(
+      (acc, movie) => {
+        acc.totalImdb += Number(movie.imdbRating);
+        acc.totalUser += Number(movie.userRating);
+        return acc;
+      },
+      { totalImdb: 0, totalUser: 0 }
+    );
+
+    setAverageImdbRating((totalImdb / watched.length).toFixed(1));
+    setAverageUserRating((totalUser / watched.length).toFixed(1));
+  }, [watched]);
 
   const handleSelectMovie = (id) => {
     selectedId === id ? setSelectedId(null) : setSelectedId(id);
@@ -90,6 +112,8 @@ export default function App() {
             setRating={setRating}
             isWatchedList={true}
             removeFromList={removeFromList}
+            averageImdbRating={averageImdbRating}
+            averageUserRating={averageUserRating}
           />
         )}
       </MoviesListsContainer>
