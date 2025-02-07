@@ -3,7 +3,8 @@ The application is currently in development. The next step is to optimize it for
 ````markdown
 # 🎬 Movie Finder App
 
-A React-based movie search application that allows users to search for movies using the OMDb API. Users can rate and add movies to a watched list, and calculate the average IMDb rating of the movies in their watched list.
+A React-based movie search application that allows users to search for movies using the OMDb API.
+ Users can rate and add movies to a watched list, and calculate the average IMDb rating of the movies in their watched list.
 
 ---
 
