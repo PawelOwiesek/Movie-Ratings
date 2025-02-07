@@ -24,7 +24,13 @@ export default function App() {
   const [averageUserRating, setAverageUserRating] = useState(0);
 
   useEffect(() => {
-    API({ setMovies, query, setIsLoading, setError, setNoData });
+    if (!query) return;
+    const controller = new AbortController();
+    const signal = controller.signal;
+    API({ setMovies, query, setIsLoading, setError, setNoData, signal });
+    return () => {
+      controller.abort();
+    };
   }, [query]);
 
   useEffect(() => {

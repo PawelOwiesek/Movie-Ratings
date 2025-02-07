@@ -6,6 +6,7 @@ export const API = async ({
   setIsLoading,
   setError,
   setNoData,
+  signal,
 }) => {
   try {
     setIsLoading(true);
@@ -13,7 +14,8 @@ export const API = async ({
     await new Promise((resolve) => setTimeout(resolve, 500));
 
     const res = await fetch(
-      `https://www.omdbapi.com/?apikey=${KEY}&s=${query}`
+      `https://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
+      { signal }
     );
 
     if (!res.ok) {
@@ -27,7 +29,10 @@ export const API = async ({
     setNoData(noMovie);
     setMovies(data.Search);
   } catch (err) {
-    console.error(err.message);
+    if (err.name === "AbortError") {
+      return;
+    }
+
     setError(true);
     setNoData(
       <h1 style={{ color: "#ffffff" }}>An error occurred. Please try again.</h1>
