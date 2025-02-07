@@ -29,10 +29,11 @@ export const API = async ({
     setNoData(noMovie);
     setMovies(data.Search);
   } catch (err) {
+    console.error(err.message);
     if (err.name === "AbortError") {
+      console.log("Fetch request aborted");
       return;
     }
-
     setError(true);
     setNoData(
       <h1 style={{ color: "#ffffff" }}>An error occurred. Please try again.</h1>
