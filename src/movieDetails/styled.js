@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Movies = styled.div`
+export const Movies = styled.article`
   position: fixed;
   max-width: 800px;
   right: 120px;

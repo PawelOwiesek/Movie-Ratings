@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Movies = styled.div`
+export const Movies = styled.section`
   background-color: #222121;
   border: 2px solid #ffd700;
   height: fit-content;

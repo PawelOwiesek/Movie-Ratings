@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MoviesContainer = styled.div`
+export const MoviesContainer = styled.main`
   padding: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;

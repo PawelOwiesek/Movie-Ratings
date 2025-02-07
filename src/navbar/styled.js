@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const NavContainer = styled.div`
+export const NavContainer = styled.header`
   margin: 0 auto;
   padding: 15px;
   background-color: rgb(18, 30, 126);
