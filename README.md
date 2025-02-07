@@ -1,3 +1,5 @@
+The application is currently in development. The next step is to optimize it for mobile devices, and there may also be some minor adjustments along the way.
+
 ````markdown
 # 🎬 Movie Finder App
 
@@ -103,6 +105,7 @@ Below are some screenshots of the app in action.
 ### Main Search Page
 
 <div style="text-align: center;">
+<div style="text-align: center;">
   <img src="public/images/mainSearch.png" alt="Main Search Page" width="600" style="border: 2px solid #000; box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); border-radius: 10px;" />
 </div>
 
@@ -117,5 +120,5 @@ Below are some screenshots of the app in action.
 <div style="text-align: center;">
   <img src="public/images/watchedList.png" alt="Main Search Page" width="600" style="border: 2px solid #000; box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); border-radius: 10px;" />
 </div>
-
+</div>
 ---
