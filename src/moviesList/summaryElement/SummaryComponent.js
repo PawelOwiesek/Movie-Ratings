@@ -1,21 +1,19 @@
-import { Stars } from "../../star/starComponent";
 import { Summary } from "../styled";
-
 import { RatingContainer, Title } from "./styled";
 
-function SummaryComponent({ $open, list, hover, rating, setHover, setRating }) {
+function SummaryComponent({
+  $open,
+  list,
+  averageImdbRating,
+  averageUserRating,
+}) {
   return (
     <Summary $open={$open}>
       <Title>Movies You watched </Title>
       <RatingContainer>
-        <p>💢 {list?.length} movies</p>
-        <Stars
-          hover={hover}
-          setHover={setHover}
-          rating={rating}
-          setRating={setRating}
-        />
-        Rating {hover || rating || ""}
+        <p>🎬 {list?.length} movies watched</p>
+        <p>⭐{averageImdbRating}</p>
+        <p>🌟{averageUserRating}</p>
       </RatingContainer>
     </Summary>
   );
