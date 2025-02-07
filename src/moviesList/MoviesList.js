@@ -10,7 +10,6 @@ import {
   Rating,
 } from "./styled";
 import SummaryComponent from "./summaryElement/SummaryComponent";
-import { Star } from "../star/star";
 
 function MoviesList({
   list,
@@ -22,6 +21,8 @@ function MoviesList({
   setHover,
   isWatchedList,
   removeFromList,
+  averageImdbRating,
+  averageUserRating,
 }) {
   const [open, setOpen] = useState(true);
   const onListOpen = () => {
@@ -39,6 +40,8 @@ function MoviesList({
           setHover={setHover}
           rating={rating}
           setRating={setRating}
+          averageImdbRating={averageImdbRating}
+          averageUserRating={averageUserRating}
         />
       )}
       <List $open={open}>
@@ -79,11 +82,11 @@ function MoviesList({
                       x
                     </button>
                     <Rating>
-                      <Star full={true} width={40} />
+                      <span style={{ fontSize: "25px" }}>⭐</span>
                       Imdb rating {movie.imdbRating}
                     </Rating>
                     <Rating>
-                      <Star full={true} width={40} />
+                      <span style={{ fontSize: "25px" }}>🌟</span>
                       My rating: {movie.userRating}
                     </Rating>
                     <Rating>{movie.runtime} </Rating>
