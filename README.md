@@ -1,8 +1,10 @@
 The application is currently in development. The next step is to optimize it for mobile devices, and there may also be some minor adjustments along the way.
 
-````markdown
-# 🎬 Movie Finder App
 
+
+## Demo:[🎬 Movie Finder App](https://movie-ratings-two.vercel.app/)
+
+````markdown
 A React-based movie search application that allows users to search for movies using the OMDb API.
  Users can rate and add movies to a watched list, and calculate the average IMDb rating of the movies in their watched list.
 
