@@ -17,7 +17,7 @@ export const API = async ({
     );
 
     if (!res.ok) {
-      throw new Error("");
+      throw new Error(`Failed to fetch data from API. Status: ${res.status}`);
     }
 
     const data = await res.json();
@@ -29,6 +29,9 @@ export const API = async ({
   } catch (err) {
     console.error(err.message);
     setError(true);
+    setNoData(
+      <h1 style={{ color: "#ffffff" }}>An error occurred. Please try again.</h1>
+    );
   } finally {
     setIsLoading(false);
   }
