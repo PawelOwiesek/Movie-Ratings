@@ -57,7 +57,7 @@ function MoviesList({
               <img
                 style={{ width: "175px" }}
                 src={movie.Poster}
-                alt="movie.Title"
+                alt={movie.Title}
               />
               <MovieDescription>
                 <MovieTitle>{movie.Title}</MovieTitle>
