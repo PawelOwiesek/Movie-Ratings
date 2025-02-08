@@ -41,11 +41,15 @@ export const MovieDetails = ({
   }, [selectedId]);
 
   useEffect(() => {
-    document.addEventListener("keydown", (e) => {
+    const callback = (e) => {
       if (e.code === "Escape") {
         handleCloseMovie();
       }
-    });
+    };
+    document.addEventListener("keydown", callback);
+    return () => {
+      document.removeEventListener("keydown", callback);
+    };
   }, [handleCloseMovie]);
 
   const handleAddMovie = () => {

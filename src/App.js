@@ -25,6 +25,7 @@ export default function App() {
 
   useEffect(() => {
     if (!query) return;
+    handleCloseMovie();
     const controller = new AbortController();
     const signal = controller.signal;
     API({ setMovies, query, setIsLoading, setError, setNoData, signal });
