@@ -9,6 +9,7 @@ import {
   Image,
   Movies,
   MovieTitle,
+  StarContainer,
 } from "./styled";
 import { Stars } from "../star/starComponent";
 import { Loading } from "../asideActions/loader/loader";
@@ -88,9 +89,7 @@ export const MovieDetails = ({
                   <GenreItem key={genre}>{genre.trim()}</GenreItem>
                 ))}
               </Genre>
-              <div
-                style={{ display: "flex", alignItems: "center", gap: "20px" }}
-              >
+              <StarContainer>
                 <Stars
                   hover={hover}
                   setHover={setHover}
@@ -98,7 +97,7 @@ export const MovieDetails = ({
                   setRating={setRating}
                 />
                 Rating {hover || rating || ""}
-              </div>
+              </StarContainer>
               {rating ? (
                 <Button $addMovie onClick={handleAddMovie}>
                   Add movie to list

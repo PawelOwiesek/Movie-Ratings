@@ -53,3 +53,9 @@ export const Image = styled.img`
   height: 275px;
   margin: 20px;
 `;
+
+export const StarContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+`;

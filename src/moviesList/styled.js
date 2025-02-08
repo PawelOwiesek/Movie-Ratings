@@ -80,3 +80,20 @@ export const Rating = styled.span`
   display: flex;
   align-items: center;
 `;
+
+export const RemoveButton = styled.button`
+  position: absolute;
+  right: 40px;
+  top: -60px;
+  border: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  background-color: crimson;
+  color: #ffffff;
+  font-size: 18px;
+`;
+
+export const StarIcon = styled.span`
+  font-size: 25px;
+`;

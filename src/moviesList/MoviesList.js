@@ -8,6 +8,8 @@ import {
   Movies,
   MovieTitle,
   Rating,
+  RemoveButton,
+  StarIcon,
 } from "./styled";
 import SummaryComponent from "./summaryElement/SummaryComponent";
 
@@ -64,29 +66,15 @@ function MoviesList({
                 {$rating && (
                   <MovieRatingContainer>
                     {" "}
-                    <button
-                      onClick={() => removeFromList(movie.imdbID)}
-                      style={{
-                        position: "absolute",
-                        right: "40px",
-                        top: "-60px",
-                        border: "none",
-                        height: "30px",
-                        width: "30px",
-                        borderRadius: "100%",
-                        backgroundColor: "crimson",
-                        color: " #ffffff",
-                        fontSize: "18px",
-                      }}
-                    >
+                    <RemoveButton onClick={() => removeFromList(movie.imdbID)}>
                       x
-                    </button>
+                    </RemoveButton>
                     <Rating>
-                      <span style={{ fontSize: "25px" }}>⭐</span>
+                      <StarIcon>⭐</StarIcon>
                       Imdb rating {movie.imdbRating}
                     </Rating>
                     <Rating>
-                      <span style={{ fontSize: "25px" }}>🌟</span>
+                      <StarIcon>🌟</StarIcon>
                       My rating: {movie.userRating}
                     </Rating>
                     <Rating>{movie.runtime} </Rating>
