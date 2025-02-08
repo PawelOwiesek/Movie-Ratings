@@ -40,6 +40,14 @@ export const MovieDetails = ({
     setIsLoading(false);
   }, [selectedId]);
 
+  useEffect(() => {
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Escape") {
+        handleCloseMovie();
+      }
+    });
+  }, [handleCloseMovie]);
+
   const handleAddMovie = () => {
     const addedMovie = {
       imdbID: selectedId,

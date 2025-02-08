@@ -53,14 +53,6 @@ export default function App() {
     setAverageUserRating((totalUser / watched.length).toFixed(1));
   }, [watched]);
 
-  useEffect(() => {
-    document.addEventListener("keydown", (e) => {
-      if (e.code === "Escape") {
-        handleCloseMovie();
-      }
-    });
-  }, []);
-
   const handleSelectMovie = (id) => {
     selectedId === id ? setSelectedId(null) : setSelectedId(id);
   };
