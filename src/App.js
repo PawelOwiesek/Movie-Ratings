@@ -12,7 +12,10 @@ import { MovieDetails } from "./movieDetails";
 
 export default function App() {
   const [movies, setMovies] = useState([]);
-  const [watched, setWatched] = useState([]);
+  const [watched, setWatched] = useState(() => {
+    const storedValue = localStorage.getItem("watched");
+    return JSON.parse(storedValue);
+  });
   const [query, setQuery] = useState("Superman");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -52,6 +55,10 @@ export default function App() {
 
     setAverageImdbRating((totalImdb / watched.length).toFixed(1));
     setAverageUserRating((totalUser / watched.length).toFixed(1));
+  }, [watched]);
+
+  useEffect(() => {
+    localStorage.setItem("watched", JSON.stringify(watched));
   }, [watched]);
 
   const handleSelectMovie = (id) => {
