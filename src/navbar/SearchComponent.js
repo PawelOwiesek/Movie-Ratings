@@ -1,12 +1,14 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
+import { useKey } from "../useKey";
 import { Search } from "./styled";
 
 function SearchComponent({ setQuery, query }) {
   const inputRef = useRef(null);
-
-  useEffect(() => {
+  useKey("Enter", function () {
+    if (document.activeElement === inputRef.current) return;
     inputRef.current.focus();
-  }, []);
+    setQuery("");
+  });
 
   return (
     <Search
