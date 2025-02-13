@@ -13,6 +13,7 @@ import {
 } from "./styled";
 import { Stars } from "../star/starComponent";
 import { Loading } from "../asideActions/loader/loader";
+import { useKey } from "../useKey";
 
 export const MovieDetails = ({
   selectedId,
@@ -26,6 +27,7 @@ export const MovieDetails = ({
 }) => {
   const [selectedMovie, setSelectedMovie] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  useKey("Escape", handleCloseMovie);
 
   useEffect(() => {
     setIsLoading(true);
@@ -40,18 +42,6 @@ export const MovieDetails = ({
     fetchMovieDetails();
     setIsLoading(false);
   }, [selectedId]);
-
-  useEffect(() => {
-    const callback = (e) => {
-      if (e.code === "Escape") {
-        handleCloseMovie();
-      }
-    };
-    document.addEventListener("keydown", callback);
-    return () => {
-      document.removeEventListener("keydown", callback);
-    };
-  }, [handleCloseMovie]);
 
   const handleAddMovie = () => {
     const addedMovie = {
