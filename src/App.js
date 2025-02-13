@@ -46,13 +46,15 @@ export default function App() {
 
     const { totalImdb, totalUser } = watched.reduce(
       (acc, movie) => {
-        acc.totalImdb += Number(movie.imdbRating);
+        acc.totalImdb += Number(movie.imdbRating === "N/A")
+          ? 0
+          : Number(movie.imdbRating);
         acc.totalUser += Number(movie.userRating);
         return acc;
       },
       { totalImdb: 0, totalUser: 0 }
     );
-
+    console.log(watched);
     setAverageImdbRating((totalImdb / watched.length).toFixed(1));
     setAverageUserRating((totalUser / watched.length).toFixed(1));
   }, [watched]);
