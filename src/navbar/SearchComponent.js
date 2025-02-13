@@ -1,10 +1,17 @@
+import { useEffect, useRef } from "react";
 import { Search } from "./styled";
 
 function SearchComponent({ setQuery, query }) {
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   return (
     <Search
-      autoFocus
       value={query}
+      ref={inputRef}
       onChange={(e) => {
         setQuery(e.target.value);
       }}
