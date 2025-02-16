@@ -15,6 +15,14 @@ export const List = styled.ul`
   list-style: none;
   color: #ffffff;
   margin-top: 40px;
+
+  @media (max-width: 1024px) {
+    display: ${({ $open }) => ($open ? "flex" : "none")};
+    flex-direction: column;
+  }
+  @media (max-width: 768px) {
+    max-width: 340px;
+  }
 `;
 
 export const ListItem = styled.li`
@@ -25,8 +33,19 @@ export const ListItem = styled.li`
   font-size: 18px;
   margin-bottom: 25px;
   border-radius: 30px;
+  position: relative;
   &:hover {
     box-shadow: 16px 13px 14px 11px #00000066;
+  }
+
+  @media (max-width: 1024px) {
+    max-width: 420px;
+    border: 2px solid #ffd700;
+    border-radius: 0;
+  }
+  @media (max-width: 768px) {
+    margin: 5px;
+    padding: 5px;
   }
 `;
 
@@ -44,11 +63,24 @@ export const Button = styled.button`
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
+
+  @media (max-width: 1024px) {
+    right: 5px;
+    top: 10px;
+    font-size: 16px;
+  }
 `;
 
 export const MovieDescription = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 1024px) {
+    max-width: 300px;
+  }
+  @media (max-width: 768px) {
+    max-width: 250px;
+  }
 `;
 
 export const Summary = styled.div`
@@ -62,18 +94,41 @@ export const Summary = styled.div`
   border-radius: 25px;
   background-color: #534d4d;
   box-shadow: 16px 13px 14px 11px #00000066;
+
+  @media (max-width: 1024px) {
+    max-width: 450px;
+    margin: 50px 30px -60px;
+  }
+
+  @media (max-width: 768px) {
+    margin: 50px 15px -60px;
+  }
 `;
 
 export const MovieTitle = styled.h3`
   padding: 0;
   margin: 0;
+
+  @media (max-width: 1024px) {
+    font-size: 18px;
+    word-wrap: break-word;
+    max-width: 200px;
+  }
+  @media (max-width: 768px) {
+    font-size: 14px;
+    max-width: 160px;
+  }
 `;
 
 export const MovieRatingContainer = styled.p`
   display: grid;
-  position: relative;
   grid-template-columns: repeat(3, 180px);
   gap: 20px;
+
+  @media (max-width: 1024px) {
+    display: flex;
+    font-size: 15px;
+  }
 `;
 
 export const Rating = styled.span`
@@ -81,10 +136,16 @@ export const Rating = styled.span`
   align-items: center;
 `;
 
+export const RatingDescription = styled.span`
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`;
+
 export const RemoveButton = styled.button`
   position: absolute;
-  right: 40px;
-  top: -60px;
+  right: 7px;
+  top: 7px;
   border: none;
   height: 30px;
   width: 30px;
@@ -92,8 +153,37 @@ export const RemoveButton = styled.button`
   background-color: crimson;
   color: #ffffff;
   font-size: 18px;
+
+  @media (max-width: 1024px) {
+    right: 2px;
+    top: 2px;
+    font-size: 14px;
+    height: 25px;
+    width: 25px;
+  }
+  @media (max-width: 768px) {
+    font-size: 10px;
+    height: 20px;
+    width: 20px;
+  }
 `;
 
 export const StarIcon = styled.span`
   font-size: 25px;
+  @media (max-width: 769px) {
+    font-size: 18px;
+  }
+`;
+
+export const Poster = styled.img`
+  max-width: 175px;
+
+  @media (max-width: 1024px) {
+    max-width: 80px;
+    margin: 5px;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 50px;
+  }
 `;
