@@ -7,4 +7,8 @@ export const MoviesContainer = styled.main`
   max-width: 1600px;
   gap: 40px;
   margin: 0 auto;
+  @media (max-width: 450px) {
+    gap: 10px;
+    padding: 5px;
+  }
 `;

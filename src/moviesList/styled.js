@@ -6,6 +6,10 @@ export const Movies = styled.section`
   height: fit-content;
   border-radius: 25px;
   position: relative;
+  @media (max-width: 450px) {
+    max-width: 200px;
+    font-size: 16px;
+  }
 `;
 
 export const List = styled.ul`
@@ -22,6 +26,10 @@ export const List = styled.ul`
   }
   @media (max-width: 768px) {
     max-width: 340px;
+  }
+  @media (max-width: 650px) {
+    padding: 40px 0 20px;
+    max-width: 200px;
   }
 `;
 
@@ -46,6 +54,11 @@ export const ListItem = styled.li`
   @media (max-width: 768px) {
     margin: 5px;
     padding: 5px;
+  }
+  @media (max-width: 450px) {
+    flex-direction: column;
+    gap: 5px;
+    margin: 5px;
   }
 `;
 
