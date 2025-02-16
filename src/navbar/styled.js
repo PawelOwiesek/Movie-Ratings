@@ -10,6 +10,14 @@ export const NavContainer = styled.header`
   max-width: 90vw;
   border-radius: 15px;
   border: 2px solid #ffd700;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 767px) {
+    max-width: 450px;
+  }
 `;
 
 export const LogoContainer = styled.div`
@@ -18,6 +26,16 @@ export const LogoContainer = styled.div`
   align-items: center;
   color: #ffd700;
   gap: 20px;
+
+  @media (max-width: 1024px) {
+    margin: 10px;
+  }
+`;
+
+export const Title = styled.h1`
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 export const Search = styled.input`
@@ -32,6 +50,9 @@ export const Search = styled.input`
   border: 2px solid #ffd700;
   color: #ffffff;
   cursor: pointer;
+  @media (max-width: 450px) {
+    max-width: 450px;
+  }
 `;
 
 export const Results = styled.p`
