@@ -11,7 +11,7 @@ export const NavContainer = styled.header`
   border-radius: 15px;
   border: 2px solid #ffd700;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     flex-direction: column;
   }
 
@@ -27,13 +27,13 @@ export const LogoContainer = styled.div`
   color: #ffd700;
   gap: 20px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     margin: 10px;
   }
 `;
 
 export const Title = styled.h1`
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     display: none;
   }
 `;

@@ -7,7 +7,7 @@ export const Movies = styled.article`
   background-color: #534d4d;
   border: 2px solid #ffd700;
   border-radius: 25px;
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     position: static;
     right: 70px;
     max-width: 420px;
@@ -22,7 +22,7 @@ export const Movies = styled.article`
 export const FlexContainer = styled.div`
   display: flex;
   padding: 10px;
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     flex-direction: column;
     padding: 0 30px;
   }
@@ -32,7 +32,7 @@ export const Description = styled.div`
   color: #ffffff;
   padding-top: 10px;
   font-size: 20px;
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     display: flex;
     flex-direction: column;
     font-size: 18px;
@@ -43,7 +43,7 @@ export const Description = styled.div`
 `;
 
 export const MovieTitle = styled.h2`
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     max-width: 300px;
     font-size: 18px;
     word-wrap: break-word;
@@ -59,7 +59,7 @@ export const Genre = styled.ul`
   gap: 20px;
   padding: 0;
   flex-wrap: wrap;
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     font-size: 18px;
   }
   @media (max-width: 768px) {
@@ -91,7 +91,7 @@ export const Image = styled.img`
   height: 275px;
   margin: 20px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     width: 280px;
     height: 360px;
     align-self: center;
@@ -108,7 +108,7 @@ export const StarContainer = styled.div`
   align-items: center;
   gap: 20px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     display: flex;
     flex-direction: column;
     gap: 5px;

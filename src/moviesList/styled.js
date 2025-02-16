@@ -20,7 +20,7 @@ export const List = styled.ul`
   color: #ffffff;
   margin-top: 40px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     display: ${({ $open }) => ($open ? "flex" : "none")};
     flex-direction: column;
   }
@@ -46,7 +46,7 @@ export const ListItem = styled.li`
     box-shadow: 16px 13px 14px 11px #00000066;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     max-width: 420px;
     border: 2px solid #ffd700;
     border-radius: 0;
@@ -77,7 +77,7 @@ export const Button = styled.button`
   font-weight: 600;
   cursor: pointer;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     right: 5px;
     top: 10px;
     font-size: 16px;
@@ -88,7 +88,7 @@ export const MovieDescription = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     max-width: 300px;
   }
   @media (max-width: 768px) {
@@ -108,7 +108,7 @@ export const Summary = styled.div`
   background-color: #534d4d;
   box-shadow: 16px 13px 14px 11px #00000066;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     max-width: 450px;
     margin: 50px 30px -60px;
   }
@@ -122,7 +122,7 @@ export const MovieTitle = styled.h3`
   padding: 0;
   margin: 0;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     font-size: 18px;
     word-wrap: break-word;
     max-width: 200px;
@@ -138,7 +138,7 @@ export const MovieRatingContainer = styled.p`
   grid-template-columns: repeat(3, 180px);
   gap: 20px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     display: flex;
     font-size: 15px;
   }
@@ -150,7 +150,7 @@ export const Rating = styled.span`
 `;
 
 export const RatingDescription = styled.span`
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     display: none;
   }
 `;
@@ -167,7 +167,7 @@ export const RemoveButton = styled.button`
   color: #ffffff;
   font-size: 18px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     right: 2px;
     top: 2px;
     font-size: 14px;
@@ -191,7 +191,7 @@ export const StarIcon = styled.span`
 export const Poster = styled.img`
   max-width: 175px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1080px) {
     max-width: 80px;
     margin: 5px;
   }
