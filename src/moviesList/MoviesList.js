@@ -10,6 +10,8 @@ import {
   Rating,
   RemoveButton,
   StarIcon,
+  Poster,
+  RatingDescription,
 } from "./styled";
 import SummaryComponent from "./summaryElement/SummaryComponent";
 
@@ -54,11 +56,7 @@ function MoviesList({
               key={movie.imdbID}
             >
               {" "}
-              <img
-                style={{ width: "175px" }}
-                src={movie.Poster}
-                alt={movie.Title}
-              />
+              <Poster src={movie.Poster} alt={movie.Title} />
               <MovieDescription>
                 <MovieTitle>{movie.Title}</MovieTitle>
 
@@ -71,11 +69,13 @@ function MoviesList({
                     </RemoveButton>
                     <Rating>
                       <StarIcon>⭐</StarIcon>
-                      Imdb rating {movie.imdbRating}
+                      <RatingDescription>Imdb rating</RatingDescription>{" "}
+                      {movie.imdbRating}
                     </Rating>
                     <Rating>
                       <StarIcon>🌟</StarIcon>
-                      My rating: {movie.userRating}
+                      <RatingDescription>My rating:</RatingDescription>{" "}
+                      {movie.userRating}
                     </Rating>
                     <Rating>{movie.runtime} </Rating>
                   </MovieRatingContainer>
