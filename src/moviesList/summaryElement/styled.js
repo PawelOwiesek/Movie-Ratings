@@ -12,9 +12,25 @@ export const RatingContainer = styled.div`
   align-items: center;
   font-size: 22px;
 
+  @media (max-width: 1240px) {
+    gap: 45px;
+    max-width: 400px;
+    font-size: 20px;
+  }
+
   @media (max-width: 1080px) {
-    gap: 20px;
-    max-width: 300px;
+    gap: 10px;
+    max-width: 320px;
     font-size: 16px;
+    margin-right: 10px;
+  }
+  @media (max-width: 767px) {
+    flex-direction: column;
+    max-width: 250px;
+    gap: 5px;
+    margin: 0 auto;
+  }
+  p {
+    margin: 2px;
   }
 `;

@@ -6,8 +6,19 @@ export const Movies = styled.section`
   height: fit-content;
   border-radius: 25px;
   position: relative;
+
+  @media (max-width: 1240px) {
+    max-width: 600px;
+    font-size: 18px;
+  }
+
+  @media (max-width: 767px) {
+    max-width: 300px;
+    font-size: 18px;
+  }
+
   @media (max-width: 450px) {
-    max-width: 200px;
+    max-width: 150px;
     font-size: 16px;
   }
 `;
@@ -26,10 +37,12 @@ export const List = styled.ul`
   }
   @media (max-width: 768px) {
     max-width: 340px;
+    padding: 0;
+    margin-top: 80px;
   }
   @media (max-width: 650px) {
     padding: 40px 0 20px;
-    max-width: 200px;
+    max-width: 220px;
   }
 `;
 
@@ -42,6 +55,7 @@ export const ListItem = styled.li`
   margin-bottom: 25px;
   border-radius: 30px;
   position: relative;
+
   &:hover {
     box-shadow: 16px 13px 14px 11px #00000066;
   }
@@ -114,13 +128,19 @@ export const Summary = styled.div`
   }
 
   @media (max-width: 768px) {
-    margin: 50px 15px -60px;
+    margin: 50px 7px -60px;
   }
 `;
 
 export const MovieTitle = styled.h3`
   padding: 0;
   margin: 0;
+
+  @media (max-width: 1240px) {
+    font-size: 18px;
+    word-wrap: break-word;
+    max-width: 240px;
+  }
 
   @media (max-width: 1080px) {
     font-size: 18px;
@@ -138,9 +158,28 @@ export const MovieRatingContainer = styled.p`
   grid-template-columns: repeat(3, 180px);
   gap: 20px;
 
-  @media (max-width: 1080px) {
+  @media (max-width: 1240px) {
     display: flex;
-    font-size: 15px;
+    font-size: 16px;
+    gap: 8px;
+  }
+
+  @media (max-width: 1024px) {
+    display: flex;
+    font-size: 16px;
+    gap: 8px;
+  }
+
+  @media (max-width: 767px) {
+    display: flex;
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  @media (max-width: 450px) {
+    display: flex;
+    font-size: 8px;
+    gap: 4px;
   }
 `;
 
@@ -183,13 +222,17 @@ export const RemoveButton = styled.button`
 
 export const StarIcon = styled.span`
   font-size: 25px;
-  @media (max-width: 769px) {
-    font-size: 18px;
+  @media (max-width: 1080px) {
+    font-size: 14px;
   }
 `;
 
 export const Poster = styled.img`
   max-width: 175px;
+
+  @media (max-width: 1240px) {
+    max-width: 90px;
+  }
 
   @media (max-width: 1080px) {
     max-width: 80px;
